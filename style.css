@@ -3,7 +3,7 @@
 html, body {
     height: 100%;
     margin: 0;
-    overflow: hidden; /* teatr, brak scrolla */
+    overflow: hidden;
 }
 
 body {
@@ -13,7 +13,7 @@ body {
     position: relative;
 }
 
-/* winieta filmowa */
+/* winieta */
 body::after {
     content: "";
     position: fixed;
@@ -28,10 +28,9 @@ body::before {
     position: fixed;
     inset: 0;
     pointer-events: none;
-    /* można użyć lokalnego pliku grain.png albo online */
     background: url('https://raw.githubusercontent.com/mdn/web-dicta/main/grain.png') repeat;
-    opacity: 0.12; /* intensywność ziaren */
-    mix-blend-mode: overlay; /* delikatne połączenie z tłem */
+    opacity: 0.12;
+    mix-blend-mode: overlay;
 }
 
 .container {
@@ -46,24 +45,22 @@ body::before {
     text-align: center;
 }
 
-/* tekst */
 #tresc {
-    font-size: 2.2rem;
+    font-size: 2rem;
     line-height: 1.4;
     opacity: 0;
     transition: opacity 0.8s ease-in-out;
     animation: breathe 6s ease-in-out infinite;
-    text-shadow: 0 0 12px rgba(255, 0, 0, 0.12);
 }
 
-/* oddech */
+/* oddech tekstu */
 @keyframes breathe {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.015); }
 }
 
-/* czerwony akcent */
-#tresc::before {
-    content: "— ";
+/* mocne słowa na czerwono */
+#tresc .strong {
     color: #ff3333;
+    font-weight: 800;
 }
