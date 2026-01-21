@@ -38,11 +38,16 @@ body::before {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .content {
     max-width: 80%;
     text-align: center;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    display: flex;
 }
 
 #tresc {
@@ -63,4 +68,12 @@ body::before {
 #tresc .strong {
     color: #ff3333;
     font-weight: 800;
+}
+
+#footer {
+    font-weight: 400;
+    font-size: 12px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #575757;
 }
