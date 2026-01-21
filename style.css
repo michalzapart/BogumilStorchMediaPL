@@ -1,18 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&display=swap');
 
-body {
-    font-family: 'Montserrat', sans-serif;
-}
-
 html, body {
     height: 100%;
     margin: 0;
+    overflow: hidden; /* teatr, brak scrolla */
 }
 
 body {
-    background: #111;
-    color: #fff;
-    font-family: Arial, sans-serif;
+    background: #0e0e0e;
+    color: #f2f2f2;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+}
+
+/* winieta filmowa */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(circle at center, transparent 40%, rgba(0,0,0,0.7) 100%);
+}
+
+/* ziarno filmowe */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    /* można użyć lokalnego pliku grain.png albo online */
+    background: url('https://raw.githubusercontent.com/mdn/web-dicta/main/grain.png') repeat;
+    opacity: 0.12; /* intensywność ziaren */
+    mix-blend-mode: overlay; /* delikatne połączenie z tłem */
 }
 
 .container {
@@ -27,7 +46,24 @@ body {
     text-align: center;
 }
 
+/* tekst */
 #tresc {
-    opacity: 1;
-    transition: opacity 0.6s ease-in-out;
+    font-size: 2.2rem;
+    line-height: 1.4;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    animation: breathe 6s ease-in-out infinite;
+    text-shadow: 0 0 12px rgba(255, 0, 0, 0.12);
+}
+
+/* oddech */
+@keyframes breathe {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.015); }
+}
+
+/* czerwony akcent */
+#tresc::before {
+    content: "— ";
+    color: #ff3333;
 }
