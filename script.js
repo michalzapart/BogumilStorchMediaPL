@@ -1,12 +1,12 @@
 let donejty = [];
+let index = 0; // licznik do iterowania po donejtach
 
 async function loadDonejty() {
     const response = await fetch('donejty.json');
     donejty = await response.json();
-    loop(true);
+    loop(); // start
 }
 
-// lista najmocniejszych słów (rozszerzona o wszystkie kontrowersyjne/wulgarne słowa z tekstów)
 const strongWords = [
     "kurwa", "chuj", "jeb", "wypierdalać", "cwel", "ruchał", "zesrałeś", "zdechł", "skurwysyn",
     "pedofil", "nitro", "narkoman", "knur", "knura", "major", "prawda", "bije", "ukradłeś",
@@ -18,42 +18,32 @@ const strongWords = [
     "pedofile", "ruchać", "bijesz", "kradniesz", "lateksie", "lateksy", "knur", "cwel", "skurwysyn"
 ];
 
-function randomDelay() {
-    return 4000 + Math.random() * 4000; // 4–8s losowo
-}
-
-// zamienia mocne słowa na span z klasą
 function highlightStrongWords(text) {
     let re = new RegExp(`\\b(${strongWords.join("|")})\\b`, "gi");
     return text.replace(re, '<span class="strong">$1</span>');
 }
 
-function showRandom(first = false) {
+function showNext() {
     if (donejty.length === 0) return;
 
     const el = document.getElementById('tresc');
-
-    let i = Math.floor(Math.random() * donejty.length);
-    const tekst = donejty[i]["Treść"];
+    const tekst = donejty[index]["Treść"];
 
     el.style.opacity = 0; // fade out
 
     setTimeout(() => {
-        // opcjonalnie: mocne słowa zostają dłużej
-        const isStrong = strongWords.some(word => tekst.toLowerCase().includes(word));
-        const delayExtra = isStrong ? 2500 : 0;
+        el.innerHTML = highlightStrongWords(tekst);
+        el.style.opacity = 1; // fade in
+    }, 500);
 
-        el.innerHTML = ""; // reset
-        setTimeout(() => {
-            el.innerHTML = highlightStrongWords(tekst); // tylko mocne słowa na czerwono
-            el.style.opacity = 1; // fade in
-        }, 1300 + delayExtra);
-    }, 800);
+    // przechodzimy do następnego tekstu
+    index++;
+    if (index >= donejty.length) index = 0; // wracamy na początek
 }
 
-function loop(first = false) {
-    showRandom(first);
-    setTimeout(() => loop(), randomDelay());
+function loop() {
+    showNext();
+    setInterval(showNext, 5000); // co 5 sekund nowy tekst
 }
 
 loadDonejty();

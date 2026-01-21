@@ -6,11 +6,30 @@ html, body {
     overflow: hidden;
 }
 
+#info {
+padding-top: 32px;
+    padding-bottom: 32px;
+    font-size: clamp(1rem, 2vw, 2rem);
+    text-align: center;
+}
+
 body {
     background: #0e0e0e;
     color: #f2f2f2;
     font-family: 'Montserrat', sans-serif;
     position: relative;
+}
+/* ziarno filmowe â mocniejsze i bardziej widoczne */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    /* wiÄksze ziarno â moĹźesz teĹź uĹźyÄ wĹasnego pliku PNG 200x200px lub wiÄcej */
+    background: url('https://raw.githubusercontent.com/mdn/web-dicta/main/grain.png') repeat;
+    opacity: 0.25; /* zwiÄkszona intensywnoĹÄ z 0.12 â 0.25 */
+    mix-blend-mode: overlay;
+    transform: scale(2); /* powiÄkszenie ziaren, Ĺźeby byĹy bardziej widoczne */
 }
 
 /* winieta */
@@ -39,10 +58,13 @@ body::before {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    max-width: 1440px;
+    margin: 0 auto;
 }
 
 .content {
     max-width: 80%;
+    gap: 32px;
     text-align: center;
     flex-grow: 1;
     justify-content: center;
@@ -51,11 +73,13 @@ body::before {
 }
 
 #tresc {
-    font-size: 2rem;
+    /* min: 1.5rem, preferowany: 5% szerokoĹci ekranu, max: 4rem */
+    font-size: clamp(1.5rem, 5vw, 4rem);
     line-height: 1.4;
     opacity: 0;
     transition: opacity 0.8s ease-in-out;
     animation: breathe 6s ease-in-out infinite;
+    margin: 0; /* warto dodaÄ, by uniknÄÄ przesuniÄÄ */
 }
 
 /* oddech tekstu */
@@ -64,7 +88,7 @@ body::before {
     50% { transform: scale(1.015); }
 }
 
-/* mocne słowa na czerwono */
+/* mocne sĹowa na czerwono */
 #tresc .strong {
     color: #ff3333;
     font-weight: 800;
