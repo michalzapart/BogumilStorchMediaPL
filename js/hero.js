@@ -2,7 +2,7 @@ let donejty = [];
 let index = 0; // licznik do iterowania po donejtach
 
 async function loadDonejty() {
-    const response = await fetch('donejty.json');
+    const response = await fetch('../data/donejty.json');
     donejty = await response.json();
     loop(); // start
 }
