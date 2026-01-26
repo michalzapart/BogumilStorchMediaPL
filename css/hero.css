@@ -1,0 +1,52 @@
+#hero {
+    background-color: black;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+
+#hero::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: url('../img/noise.jpg') repeat;
+    opacity: 0.25;
+    mix-blend-mode: overlay;
+    transform: scale(2);
+}
+
+#hero-content {
+    flex-grow: 1;
+}
+
+#content-quote {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-style: italic;
+}
+
+#quote-text {
+    /* min: 1.5rem, preferowany: 5% szerokoĹci ekranu, max: 4rem */
+    font-size: clamp(1.5rem, 2vw, 4rem);
+    line-height: 1.4;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    animation: breathe 6s ease-in-out infinite;
+    margin: 0;
+
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+}
+
+
+// <weight>: Use a value from 100 to 900
+// <uniquifier>: Use a unique and descriptive class name
+
+.montserrat-<uniquifier> {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}

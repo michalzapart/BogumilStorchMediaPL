@@ -26,7 +26,7 @@ function highlightStrongWords(text) {
 function showNext() {
     if (donejty.length === 0) return;
 
-    const el = document.getElementById('tresc');
+    const el = document.getElementById('quote-text');
     const tekst = donejty[index]["Treść"];
 
     el.style.opacity = 0; // fade out
