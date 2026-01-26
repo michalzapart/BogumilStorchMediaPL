@@ -15,7 +15,9 @@ const strongWords = [
     "oszust", "dupa", "tłusta", "jebnij", "gimbusy", "knurze", "jajcaty", "gruby", "ubeku",
     "lateks", "cwelobscy", "oszustka", "konfident", "menelice", "skurwysynu", "pierdol", "jebać",
     "zdechł", "zesrałeś", "tłusta", "dupa", "gównem", "paczki z gównem", "nitro", "narkomanie",
-    "pedofile", "ruchać", "bijesz", "kradniesz", "lateksie", "lateksy", "knur", "cwel", "skurwysyn"
+    "pedofile", "ruchać", "bijesz", "kradniesz", "lateksie", "lateksy", "knur", "cwel", "skurwysyn",
+    "mordowania", "mordowanie", "żyd", "Żydów", "rozjebać", "jebać", "pedałowi", "cwelem", "cwel",
+    "Majora", "Major", "Wojtek", "Konon", "pedały", "pedałowi", "cichodajka", "cwele", "umarł", "rucham", "wpierdolimy", "wiedźma"
 ];
 
 function highlightStrongWords(text) {

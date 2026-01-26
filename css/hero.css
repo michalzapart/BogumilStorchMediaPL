@@ -1,5 +1,5 @@
 #hero {
-    background-color: black;
+    background-color: var(--bg-1);
     min-height: 100vh;
     flex-direction: column;
 }
@@ -7,17 +7,27 @@
 
 #hero::before {
     content: "";
-    position: fixed;
+    position: absolute;
     inset: 0;
     pointer-events: none;
     background: url('../img/noise.jpg') repeat;
     opacity: 0.25;
     mix-blend-mode: overlay;
-    transform: scale(2);
+    transform: scale(1);
 }
+/* winieta */
+#hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(circle at center, transparent 40%, rgba(0,0,0,0.7) 100%);
+}
+
 
 #hero-content {
     flex-grow: 1;
+    max-width: 1440px;
 }
 
 #content-quote {
@@ -40,13 +50,12 @@
   font-weight: 700;
 }
 
+@keyframes breathe {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.015); }
+}
 
-// <weight>: Use a value from 100 to 900
-// <uniquifier>: Use a unique and descriptive class name
-
-.montserrat-<uniquifier> {
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
+#quote-text .strong {
+    color: #ff3333;
+    font-weight: 800;
 }
