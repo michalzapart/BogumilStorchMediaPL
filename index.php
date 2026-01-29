@@ -1,40 +1,84 @@
-<?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-?>
-
 <!DOCTYPE html>
 <html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Work in Progress</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <?php
-        include ("include/head.html");
-    ?>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <body>
+<style>
+    body {
+        min-height: 100vh;
+        background: white;
+        color: black;
+    }
 
-        <?php
-            include ("include/hero.html");
-            include ("include/donejty_tabela.html");
-            include ("include/disclaimer.html");
-        ?>
+    .video-box {
+        max-width: 300px;
+        overflow: hidden;
+    }
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-        <script src="js/hero.js?v=3"></script>
-        <script src="js/donejty_tabela.js"></script>
+    video {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="d-flex flex-column justify-content-center align-items-center vh-100">
+
+    <div class="text-center" style="
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        justify-content: center;
+        align-items: center;
+    ">
+
+        <div class="video-box mx-auto">
+            <video autoplay loop muted playsinline>
+                <source src="video.mp4" type="video/mp4">
+                Twoja przeglądarka nie obsługuje video.
+            </video>
+        </div>
+
+        <h1 class="" style="color: #b8401d">Strona w prytowaniu...</h1>
+        <p class="lead">Trwa zbieranie materiału️</p>
+
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12 mt-2 mb-2" style="font-size: 12px;">
+
+    Niniejsza strona i wszystkie jej materiały mają wyłącznie charakter informacyjny, publicystyczny, edukacyjny, analityczny, krytyczny i satyryczny. Wszelkie cytaty, wypowiedzi i treści pochodzą z ogólnodostępnych źródeł i są prezentowane w celu analizy, komentarza, edukacji oraz udziału w publicznej debacie.
+
+    Strona nie ma i nigdy nie miała na celu wyrządzenia szkody jakiejkolwiek osobie fizycznej lub prawnej, w tym panu Bogumiłowi Storchowi, ani naruszenia jego dóbr osobistych. Publikacja materiałów odbywa się w dobrej wierze, z zachowaniem zasad rzetelności dziennikarskiej, neutralności i przestrzeganiem obowiązującego prawa.
+
+    Autor serwisu w żadnym wypadku nie ponosi odpowiedzialności za:
+
+    interpretacje treści przez osoby trzecie,
+
+    jakiekolwiek roszczenia cywilne, karne, administracyjne lub finansowe związane z treścią strony,
+
+    ewentualne szkody, które ktoś mógłby przypisać stronie lub jej zawartości,
+
+    dokładność, kompletność lub aktualność cytowanych materiałów i informacji.
+
+    Korzystanie ze strony oznacza, że użytkownik przyjmuje do wiadomości, iż treści mają wyłącznie charakter publicystyczny, informacyjny, edukacyjny i krytyczny, a ich publikacja nie stanowi działania na szkodę żadnej osoby ani instytucji, nie jest w żadnym wypadku zniesławieniem ani pomówieniem.
+
+    Niniejsze zastrzeżenie ma na celu maksymalną ochronę autora strony i nie ogranicza dozwolonego korzystania z prawa do krytyki i publicznej debaty.
+
+            </div>
+        </div>
+    </div>
 
 
-        <!-- Hotjar Tracking Code for BogumilStorchMedia -->
-<script>
-    (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:6626927,hjsv:6};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;
-        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        a.appendChild(r);
-    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
+</div>
 
-
-    </body>
+</body>
 </html>
